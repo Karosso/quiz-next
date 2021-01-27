@@ -27,7 +27,12 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = db.theme;
 
-export default function App({ Component, pageProps }) {
+interface IAppProps {
+  Component: any,
+  pageProps: any
+}
+
+const App: React.FC<IAppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -37,3 +42,5 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
+
+export default App
