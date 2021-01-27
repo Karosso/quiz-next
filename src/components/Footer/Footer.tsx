@@ -25,7 +25,7 @@ const FooterWrapper = styled.footer`
 `;
 
 
-const Footer: React.FC = (props) => {
+const Footer: React.FC = () => { /* props */
   return (
     <FooterWrapper> {/* {...props} resolver */}
       <a href="https://www.alura.com.br/">
