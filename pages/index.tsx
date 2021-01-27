@@ -1,10 +1,51 @@
+import React from 'react'
 import styled from 'styled-components'
+import { db } from '../db'
+import Footer from '../src/components/Footer/Footer';
+import GitHubCorner from '../src/components/GitHubCorner/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground/QuizBackground';
+import Widget from '../src/components/Widget/Widget';
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
+
+// const BackgroundImage = styled.div`
+//   background-image: url(${db.bg});
+//   flex: 1;
+//   background-size: cover;
+//   background-position: center;
+// `;
+
+const QuizContainer = styled.div`
+  width: 100%;
+  max-width: 350px;
+  padding-top: 45px;
+  margin: auto 10%;
+  @media screen and (max-width: 500px) {
+    margin: auto;
+    padding: 15px;
+  }
+`;
 
 export default function Home() {
-  return <Title>My page</Title>
+  return (
+    <QuizBackground backgroundImage={db.bg}>
+      <QuizContainer>
+        <Widget>
+          <Widget.Header>
+            <h1>Título styled components</h1>
+          </Widget.Header>
+          <Widget.Content>
+            <p>Lorem ipson dolor sit amet...</p>
+          </Widget.Content>
+        </Widget>
+        <Widget>
+          <Widget.Content>
+            <h1>Título styled components</h1>
+            <p>Lorem ipson dolor sit amet...</p>
+          </Widget.Content>
+        </Widget>
+        <Footer />
+      </QuizContainer>
+      <GitHubCorner projectUrl="https://github.com/Karosso" />
+    </QuizBackground>
+  )
 }
