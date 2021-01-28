@@ -1,7 +1,9 @@
+import { bg } from "./bg";
+
 export const db = {
-  "bg": "https://i2.wp.com/css-tricks.com/wp-content/uploads/2017/06/css-is-awesome-scaled.jpg?resize=1536%2C1208&ssl=1",
-  "title": "Quiz CSS da Alura",
-  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "bg": bg,
+  "title": "The Simpsons Quiz",
+  "description": "Teste os seus conhecimentos sobre a família mais amada das telinhas",
   "questions": [
     {
       "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
@@ -34,9 +36,10 @@ export const db = {
       "primary": "#0d47a1",
       "secondary": "#29b6f6",
       "mainBg": "#171B35",
-      "contrastText": "#FFFFFF",
+      "contrastText": "#FDD23A",
       "wrong": "#FF5722",
-      "success": "#4CAF50"
+      "success": "#4CAF50",
+      "white": "#FFFFFF"
     },
     "borderRadius": "4px"
   }

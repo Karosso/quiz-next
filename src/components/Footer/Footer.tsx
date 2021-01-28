@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components'
 
 const FooterWrapper = styled.footer`
@@ -11,7 +12,7 @@ const FooterWrapper = styled.footer`
     margin-right: 23px;
   }
   a {
-    color: white;
+    color: ${({ theme }) => theme.colors.contrastText};
     text-decoration: none;
     transition: .3s;
     &:hover,

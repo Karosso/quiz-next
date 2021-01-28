@@ -8,7 +8,7 @@ import React from 'react';
 // };
 
 interface ILogoProps {
-  className: any
+  className?: any
 }
 
 const Logo: React.FC<ILogoProps> = ({ className }) => {

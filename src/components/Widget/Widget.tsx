@@ -21,7 +21,8 @@ const Widget: IWidget = styled.div`
   p {
     font-size: 14px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 17px;
+    letter-spacing: 1px;
   }
 `;
 

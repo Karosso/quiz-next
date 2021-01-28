@@ -8,7 +8,8 @@ declare module "styled-components" {
       mainBg: string,
       contrastText: string,
       wrong: string,
-      success: string
+      success: string,
+      white: string
     },
     borderRadius: string
   }
