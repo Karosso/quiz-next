@@ -1,6 +1,35 @@
 import { bg } from "./bg";
 
-export const db = {
+export interface IQuestions {
+  image: string,
+  title: string,
+  description: string,
+  answer: number,
+  alternatives: string[],
+}
+
+export interface ITheme {
+  colors: {
+    primary: string,
+    secondary: string,
+    mainBg: string,
+    contrastText: string,
+    wrong: string,
+    success: string,
+    white: string
+  },
+  borderRadius: string
+}
+export interface IQuizModel {
+  bg: string,
+  title: string,
+  description: string,
+  questions: IQuestions[],
+  external: string[],
+  theme: ITheme,
+}
+
+export const db: IQuizModel = {
   "bg": bg,
   "title": "The Simpsons Quiz",
   "description": "Teste os seus conhecimentos sobre a família mais amada das telinhas",

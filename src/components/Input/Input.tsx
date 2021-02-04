@@ -15,26 +15,26 @@ const InputBase = styled.input`
 `
 
 interface IInputProps {
-	onChange: ((event: React.ChangeEvent<HTMLInputElement>) => void),
-	placeHolder: string,
-	name: string,
-	value: string
+  onChange: ((event: React.ChangeEvent<HTMLInputElement>) => void),
+  placeHolder: string,
+  name: string,
+  value: string
 }
 
 const Input: React.FC<IInputProps> = ({ onChange, placeHolder, name, value }) => {
 
 
 
-	return (
-		<div>
-			<InputBase
-				placeholder={placeHolder}
-				onChange={onChange}
-				name={name}
-				value={value}
-			/>
-		</div>
-	)
+  return (
+    <div>
+      <InputBase
+        placeholder={placeHolder}
+        onChange={onChange}
+        name={name}
+        value={value}
+      />
+    </div>
+  )
 }
 
 export default Input;
