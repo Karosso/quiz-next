@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { db, IQuestions } from '../../../db';
+import React, { useState } from 'react'
+import { IQuestions } from '../../../db';
 import AlternativesForm from '../AlternativesForm/AlternativeForms';
 import Button from '../Button/Button';
 import Widget from '../Widget/Widget';
