@@ -1,8 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { db } from '../../db'
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default (request: NextApiRequest, response: NextApiResponse) => {
+    if (request.method === 'OPTIONS') {
+        response.status(200).end();
+        return;
+    }
 
+    response.setHeader('Access-Control-Allow-Credentials', 'true');
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
 
-  res.status(200).json(db)
+    response.status(200).json(db)
 }
