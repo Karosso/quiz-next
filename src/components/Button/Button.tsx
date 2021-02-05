@@ -9,9 +9,7 @@ const ButtonBase = styled.button`
 	border-radius: ${({ theme }) => theme.borderRadius};
 	color: ${({ theme }) => theme.colors.mainBg};
   border: 2px solid ${({ theme }) => theme.colors.secondary};
-
 	outline: 0;
-	
   padding: 10px 16px;
   font-weight: bold;
   font-size: 14px;
@@ -30,15 +28,12 @@ const ButtonBase = styled.button`
     cursor: not-allowed;
   }
 `
-
 interface IButtonProps {
   type?: "button" | "submit" | "reset" | undefined,
   disabled?: boolean,
 }
 
 const Button: React.FC<IButtonProps> = ({ type = 'submit', children, disabled }) => {
-
-
   return (
     <div>
       <ButtonBase type={type} disabled={disabled}>

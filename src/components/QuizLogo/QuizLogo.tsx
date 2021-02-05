@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 import React from 'react';
-// import PropTypes from 'prop-types';
-
-
-// Logo.propTypes = {
-//   className: PropTypes.string.isRequired,
-// };
-
 interface ILogoProps {
   className?: any
 }

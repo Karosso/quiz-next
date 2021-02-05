@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { db } from '../db';
+import React from 'react';
 import Footer from '../src/components/Footer/Footer';
 import GitHubCorner from '../src/components/GitHubCorner/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground/QuizBackground';
@@ -10,12 +8,12 @@ import QuizLogo from '../src/components/QuizLogo/QuizLogo';
 import Input from '../src/components/Input/Input';
 import Button from '../src/components/Button/Button';
 import QuizContainer from '../src/components/QuizContainer/QuizBackground';
-
+import { QuizLanguage, useQuizContext } from '../src/context/QuizContext';
+import LanguageRadio from '../src/components/LanguageRadio/LanguageRadio';
 
 export default function Home() {
 
-  const [name, setName] = useState('');
-
+  const { quizData, language, name, setName } = useQuizContext();
   const router = useRouter();
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,34 +22,30 @@ export default function Home() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    router.push({
-      pathname: `/quiz`,
-      query: { name: name},
-    })
-    
+    router.push({ pathname: `/quiz` })
   }
 
-
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={quizData.bg}>
+      <LanguageRadio />
+      
       <QuizContainer>
         <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1>The Simpsons</h1>
+            <h1>{quizData.title}</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>Teste os seus conhecimentos sobre a série mais aclamada da galáxia...</p>
+            <p>{quizData.description}</p>
             <form onSubmit={handleSubmit}>
-              <Input placeHolder="Qual seu nome?" onChange={handleName} name="NomeDoJogador" value={name} />
-              <Button type="submit" disabled={name.length < 3}>Jogar</Button> 
+              <Input placeHolder={quizData.playerNameQuestion} onChange={handleName} name="NomeDoJogador" value={name} />
+              <Button type="submit" disabled={name.length < 3}>{language === QuizLanguage.ENGLISH ? 'Play  ' : 'Jogar  '}{` ${name}`}</Button>
             </form>
           </Widget.Content>
         </Widget>
         <Widget>
           <Widget.Content>
-            <h1>Título styled components</h1>
+            <h1>Lorem ipson dolor sit amet...</h1>
             <p>Lorem ipson dolor sit amet...</p>
           </Widget.Content>
         </Widget>

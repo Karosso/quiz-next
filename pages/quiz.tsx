@@ -1,59 +1,35 @@
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
-import { db } from '../db';
-import Button from '../src/components/Button/Button';
+import GitHubCorner from '../src/components/GitHubCorner/GitHubCorner';
+import LanguageRadio from '../src/components/LanguageRadio/LanguageRadio';
 import QuestionWidget from '../src/components/QuestionWidget/QuestionWidget';
 import QuizBackground from '../src/components/QuizBackground/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo/QuizLogo';
+import ResultWidget from '../src/components/Results/Results';
 import Widget from '../src/components/Widget/Widget';
+import { QuizLanguage, useQuizContext } from '../src/context/QuizContext';
 
-interface IResultProps {
-  results: boolean[]
+interface ILoadingProps {
+  language: QuizLanguage
 }
 
-const ResultWidget: React.FC<IResultProps> = ({ results }) => {
-
-
-
+const LoadingWidget: React.FC<ILoadingProps> = ({ language }) => {
   return (
     <Widget>
       <Widget.Header>
-        Resultado
+        {language ===  QuizLanguage.ENGLISH ? 'Loading...' : 'Carregando...'}
       </Widget.Header>
 
-      <Widget.Content>
-        <p>Você acertou{' '}
-          {results.reduce((sum, item) => {
-            const correct = item === true;
-            if (correct) {
-              return sum + 1;
-            }
-            return sum;
-          }, 0)}
-          {' '}perguntas</p>
-        <ul>
-          {
-            results.map((result, index) => (
-              <li key={index}>
-                {`Pergunta ${index + 1} :  ${result ? 'Acertou' : 'Errou'} `}
-              </li>
-            ))}
-        </ul>
-      </Widget.Content>
-    </Widget>
-  );
-}
-
-const LoadingWidget = () => {
-  return (
-    <Widget>
-      <Widget.Header>
-        Carregando...
-      </Widget.Header>
-
-      <Widget.Content>
-        [Desafio do Loading]
+      <Widget.Content style={{ padding: 0 }}>
+        <img
+          alt="Descricao"
+          style={{
+            width: '100%',
+            height: '200px',
+            objectFit: 'cover'
+          }}
+          src="http://studentedgecontent.blob.core.windows.net/images/articles/2015/06/simpsons.gif"
+        />
       </Widget.Content>
     </Widget>
   );
@@ -70,20 +46,21 @@ interface IQuizProps {
 }
 
 const Quiz: React.FC<IQuizProps> = () => {
-  const router = useRouter();
 
-  const [name, setName] = useState(router.query.name)
-
+  const { quizData, language,setResults } = useQuizContext();
   const [screenState, setScreenState] = useState(screenStates.LOADING)
-  const [results, setResults] = useState<boolean[]>([])
-  const [totalQuestions, setTotalQuestions] = useState(db.questions.length);
+  const [totalQuestions, setTotalQuestions] = useState(quizData.questions.length);
   const [questionIndex, setQuestionIndex] = useState(0);
-  const question = db.questions[questionIndex];
+  const question = quizData.questions[questionIndex];
+
+  useEffect(() => {
+    setTotalQuestions(quizData.questions.length)
+  }, [quizData])
 
   useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ)
-    }, 1 * 1000);
+    }, 2 * 1000);
   }, [])
 
   const handleSubmit = () => {
@@ -95,15 +72,14 @@ const Quiz: React.FC<IQuizProps> = () => {
     }
   }
 
-  
-
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={quizData.bg}>
+      <LanguageRadio />
       <QuizContainer>
         <QuizLogo />
         {
           screenState === screenStates.LOADING
-            ? <LoadingWidget />
+            ? <LoadingWidget language={language} />
             : screenState === screenStates.QUIZ
               ? <QuestionWidget
                 question={question}
@@ -113,11 +89,11 @@ const Quiz: React.FC<IQuizProps> = () => {
                 setResults={setResults}
               />
               : <>
-                <ResultWidget results={results} />
+                <ResultWidget/>
               </>
         }
-
       </QuizContainer>
+      <GitHubCorner projectUrl="https://github.com/Karosso" />
     </QuizBackground>
   )
 }

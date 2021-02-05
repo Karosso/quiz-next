@@ -26,9 +26,9 @@ const FooterWrapper = styled.footer`
 `;
 
 
-const Footer: React.FC = () => { /* props */
+const Footer: React.FC = () => { 
   return (
-    <FooterWrapper> {/* {...props} resolver */}
+    <FooterWrapper> 
       <a href="https://www.alura.com.br/">
         <img src="https://www.alura.com.br/assets/img/alura-logo-white.1570550707.svg" alt="Logo Alura" />
       </a>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { IQuestions } from '../../../db';
+import { QuizLanguage, useQuizContext } from '../../context/QuizContext';
 import AlternativesForm from '../AlternativesForm/AlternativeForms';
 import Button from '../Button/Button';
 import Widget from '../Widget/Widget';
@@ -13,17 +14,12 @@ interface IQuestionWidgetProps {
 }
 
 const QuestionWidget: React.FC<IQuestionWidgetProps> = ({ question, totalQuestions, questionIndex, handleSubmit, setResults }) => {
+
+  const { language } = useQuizContext();
   const [selectedAlternative, setSelectedAlternative] = useState<number>();
   const [isFormSubmited, setIsFormSubmited] = useState(false);
-
   const hasAlternativeSelected = selectedAlternative !== undefined;
   const isCorrect = selectedAlternative === question.answer;
-
-  // useEffect(() => {
-  //   console.log(selectedAlternative);
-
-  // }, [selectedAlternative])
-
   const questionId = `question__${questionIndex}`;
 
   const submit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -47,7 +43,13 @@ const QuestionWidget: React.FC<IQuestionWidgetProps> = ({ question, totalQuestio
     <Widget>
       <Widget.Header>
         <h3>
-          {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
+          {
+            language === QuizLanguage.ENGLISH 
+            ?
+              `Question ${questionIndex + 1} of ${totalQuestions}`
+            : 
+              `Pergunta ${questionIndex + 1} de ${totalQuestions}`
+          }
         </h3>
       </Widget.Header>
       <img
@@ -89,10 +91,10 @@ const QuestionWidget: React.FC<IQuestionWidgetProps> = ({ question, totalQuestio
             );
           })}
           <Button type="submit" disabled={!hasAlternativeSelected}>
-            Confirmar
+            {language === QuizLanguage.ENGLISH ? 'Confirm' : 'Confirmar'}
           </Button>
-          {isCorrect && isFormSubmited && <p>Acertou =]</p>}
-          {!isCorrect && isFormSubmited && <p>Errou =/</p>}
+          {isCorrect && isFormSubmited && <p>{language === QuizLanguage.ENGLISH ? 'Right =]' : 'Acertou =]'}</p>}
+          {!isCorrect && isFormSubmited && <p>{language === QuizLanguage.ENGLISH ? 'Wrong =]' : 'Errou =/'}</p>}
         </AlternativesForm>
       </Widget.Content>
     </Widget>
