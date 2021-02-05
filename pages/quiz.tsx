@@ -60,7 +60,7 @@ const Quiz: React.FC<IQuizProps> = () => {
   useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ)
-    }, 2 * 1000);
+    }, 3 * 1000);
   }, [])
 
   const handleSubmit = () => {

@@ -31,7 +31,7 @@ export interface IQuizModel {
 }
 
 export const db: IQuizModel = {
-  "bg": "http://localhost:3000/api/simpson_bg",
+  "bg": "https://quiz-next.karosso.vercel.app/api/simpson_bg",
   "title": "The Simpsons Quiz",
   "playerNameQuestion": "Qual seu Nome",
   "description": "Teste os seus conhecimentos sobre a família mais amada das telinhas",
