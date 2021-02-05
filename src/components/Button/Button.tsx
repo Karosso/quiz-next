@@ -31,12 +31,13 @@ const ButtonBase = styled.button`
 interface IButtonProps {
   type?: "button" | "submit" | "reset" | undefined,
   disabled?: boolean,
+  onClick?: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined
 }
 
-const Button: React.FC<IButtonProps> = ({ type = 'submit', children, disabled }) => {
+const Button: React.FC<IButtonProps> = ({ type = 'submit', children, disabled, onClick }) => {
   return (
     <div>
-      <ButtonBase type={type} disabled={disabled}>
+      <ButtonBase type={type} disabled={disabled} onClick={onClick}>
         {children}
       </ButtonBase>
 

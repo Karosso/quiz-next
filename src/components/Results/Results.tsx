@@ -1,8 +1,20 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { QuizLanguage, useQuizContext } from "../../context/QuizContext";
+import Button from "../Button/Button";
 import Widget from "../Widget/Widget";
 
 const ResultWidget: React.FC = () => {
+  const router = useRouter();
+  const { setName, setResults } = useQuizContext();
+
+  const handleBack = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    setName('');
+    setResults([]);
+    router.push({ pathname: `/` });
+  }
+
   const { language, results, name } = useQuizContext();
   return (
     <Widget>
@@ -54,6 +66,8 @@ const ResultWidget: React.FC = () => {
               </li>
             ))}
         </ul>
+
+        <Button onClick={handleBack}>{language === QuizLanguage.ENGLISH ? 'Back  ' : 'Voltar  '}</Button>
       </Widget.Content>
     </Widget>
   );

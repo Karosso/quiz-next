@@ -23,7 +23,7 @@ export const QuizProvider: React.FC = ({ children }) => {
 
   const [language, setLanguage] = useState(QuizLanguage.ENGLISH);
   const [quizData, setQuizData] = useState<IQuizModel>(questions_en);
-  const [name, setName] = useState('');
+  const [name, setName] = useState<string>('');
   const [results, setResults] = useState<boolean[]>([])
 
   useEffect(() => {
