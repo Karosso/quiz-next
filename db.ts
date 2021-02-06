@@ -60,7 +60,7 @@ export const db: IQuizModel = {
     }
   ],
   "external": [
-    "https://aluraquiz-base.alura-challenges.vercel.app/",
+    "https://avengersquiz.penadev.vercel.app/",
     "https://aluraquiz-coffee.leonardot07.vercel.app/",
     "https://quiz-cavaleiro-zodiaco.vercel.app/",
     "https://harry-potter-quiz.brunogerbasi.vercel.app/"
@@ -147,7 +147,7 @@ export const questions_pt: IQuizModel = {
     }
   ],
   "external": [
-    "https://aluraquiz-base.alura-challenges.vercel.app/",
+    "https://avengersquiz.penadev.vercel.app/",
     "https://aluraquiz-coffee.leonardot07.vercel.app/",
     "https://quiz-cavaleiro-zodiaco.vercel.app/",
     "https://harry-potter-quiz.brunogerbasi.vercel.app/"
@@ -234,7 +234,7 @@ export const questions_en: IQuizModel = {
     }
   ],
   "external": [
-    "https://aluraquiz-base.alura-challenges.vercel.app/",
+    "https://avengersquiz.penadev.vercel.app/",
     "https://aluraquiz-coffee.leonardot07.vercel.app/",
     "https://quiz-cavaleiro-zodiaco.vercel.app/",
     "https://harry-potter-quiz.brunogerbasi.vercel.app/"
