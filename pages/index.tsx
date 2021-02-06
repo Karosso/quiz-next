@@ -44,7 +44,6 @@ const Home = () => {
 
   return (
     <QuizBackground backgroundImage={quizData.bg}>
-      <LanguageRadio />
 
       <QuizContainer>
         <QuizLogo/>
@@ -112,6 +111,8 @@ const Home = () => {
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/Karosso" />
+      <LanguageRadio />
+
     </QuizBackground>
   );
 }
