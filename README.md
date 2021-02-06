@@ -4,7 +4,7 @@
 
 ## 💻 Projeto
 
-Projeto desenvolvido durante a [IMERSÃO REACT NEXT.JS](https://www.alura.com.br/imersao-react-next-js) da [Alura](https://www.alura.com.br/) apresentado pelo [@MArio Souto](https://github.com/omariosouto), [@Juliana Amoasei](https://github.com/JulianaAmoasei) e [@Paulo Silveira](https://github.com/peas). Na imerssão desenvolvemos um quiz com React.js e Next.js e o tema que escolhi foi Os Simpsons.
+Projeto desenvolvido durante a [IMERSÃO REACT NEXT.JS](https://www.alura.com.br/imersao-react-next-js) da [Alura](https://www.alura.com.br/) apresentado pelo [@MArio Souto](https://github.com/omariosouto), [@Juliana Amoasei](https://github.com/JulianaAmoasei) e [@Paulo Silveira](https://github.com/peas). Na imersão desenvolvemos um quiz com React.js e Next.js e o tema que escolhi foi Os Simpsons.
 
 O Quiz Dos Simpsons está disponivel em: [https://quiz-next.karosso.vercel.app/](https://quiz-next.karosso.vercel.app/)
 
