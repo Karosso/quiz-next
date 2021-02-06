@@ -23,7 +23,7 @@ const QuizContext = createContext<IQuizContext>({} as IQuizContext);
 
 export const QuizProvider: React.FC = ({ children }) => {
 
-  const [language, setLanguage] = useState(QuizLanguage.ENGLISH);
+  const [language, setLanguage] = useState(QuizLanguage.PORTUGUESE);
   const [quizData, setQuizData] = useState<IQuizModel>(questions_en);
   const [name, setName] = useState<string>('');
   const [results, setResults] = useState<boolean[]>([])
