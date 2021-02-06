@@ -1,28 +1,39 @@
-# TypeScript & Styled Components Next.js example
+<h1 align="center">
+    The Simpsons Quiz
+</h1>
 
-This is a really simple project that show the usage of Next.js with TypeScript and Styled Components.
+## 💻 Projeto
 
-## Deploy your own
+Projeto desenvolvido durante a [IMERSÃO REACT NEXT.JS](https://www.alura.com.br/imersao-react-next-js) da [Alura](https://www.alura.com.br/) apresentado pelo [@MArio Souto](https://github.com/omariosouto), [@Juliana Amoasei](https://github.com/JulianaAmoasei) e [@Paulo Silveira](https://github.com/peas). Na imerssão desenvolvemos um quiz com React.js e Next.js e o tema que escolhi foi Os Simpsons.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+O Quiz Dos Simpsons está disponivel em: [https://quiz-next.karosso.vercel.app/](https://quiz-next.karosso.vercel.app/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-styled-components&project-name=with-typescript-styled-components&repository-name=with-typescript-styled-components)
 
-## How to use it?
+## 📋 Tecnologias e técnicas utilizadas
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Projetinho recheado de tecnologias, com destaque para:
 
-```bash
-npx create-next-app --example with-typescript-styled-components with-typescript-styled-components-app
-# or
-yarn create next-app --example with-typescript-styled-components with-typescript-styled-components-app
-```
+- [Typescript](https://github.com/microsoft/TypeScript)
+- [ReactJS](https://pt-br.reactjs.org/)
+- [NextJS](https://nextjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [Animação com Lottie](https://lottiefiles.com/featured)
+- [Animações com Framer Motion](https://www.framer.com/motion/)
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Utilizei o hook [Context](https://pt-br.reactjs.org/docs/context.html) do React para possibilitar a troca de idioma do Quiz e para utilizar diferentes bases de dados no menu Quizes da galera.
 
-## Notes
+Do Next.js utilizei o [DataFetching](https://nextjs.org/docs/basic-features/data-fetching) para fazer o server side render dos quizes da galera.
 
-This is an amalgamation of the 2 existing examples:
 
-- [with-typescript](https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
-- [with-styled-components](https://github.com/vercel/next.js/tree/canary/examples/with-styled-components)
+### 💻 Web 
+
+<p align="center">
+  <img alt="Web" title="Web" src="public/web.png" >
+</p>
+
+### 📱 Mobile 
+<p align="center">
+  <img alt="Mobile" title="Mobile" src="public/mobile.jpg" width="250px">
+</p>
+
+
