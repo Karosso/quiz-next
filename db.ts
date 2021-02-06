@@ -103,7 +103,7 @@ export const questions_pt: IQuizModel = {
       "description": "É aquele marronzinho",
       "answer": 3,
       "alternatives": [
-        "Toto",
+        "Totó",
         "Papai Noel",
         "Bola de Neve III",
         "Ajudante de Papai Noel"
