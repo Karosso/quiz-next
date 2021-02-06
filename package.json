@@ -10,15 +10,18 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
+    "framer-motion": "^3.3.0",
     "next": "latest",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-lottie": "^1.2.3",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "12.0.12",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
+    "@types/react-lottie": "^1.2.5",
     "@types/styled-components": "5.0.1",
     "@typescript-eslint/eslint-plugin": "^4.14.1",
     "@typescript-eslint/parser": "^4.14.1",

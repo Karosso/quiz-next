@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import React from "react";
 import { QuizLanguage, useQuizContext } from "../../context/QuizContext";
@@ -17,7 +18,16 @@ const ResultWidget: React.FC = () => {
 
   const { language, results, name } = useQuizContext();
   return (
-    <Widget>
+    <Widget
+      as={motion.section}
+      transition={{ delay: 0, duration: 0.5 }}
+      variants={{
+        show: { opacity: 1, x: '0' },
+        hidden: { opacity: 0, x: '-100%' },
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
         {
           language === QuizLanguage.ENGLISH

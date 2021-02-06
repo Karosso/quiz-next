@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react'
 import GitHubCorner from '../src/components/GitHubCorner/GitHubCorner';
-import LanguageRadio from '../src/components/LanguageRadio/LanguageRadio';
 import QuestionWidget from '../src/components/QuestionWidget/QuestionWidget';
 import QuizBackground from '../src/components/QuizBackground/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer/QuizBackground';
@@ -8,27 +8,41 @@ import QuizLogo from '../src/components/QuizLogo/QuizLogo';
 import ResultWidget from '../src/components/Results/Results';
 import Widget from '../src/components/Widget/Widget';
 import { QuizLanguage, useQuizContext } from '../src/context/QuizContext';
+import Lottie from 'react-lottie';
+import loading_yellow from './../public/loading.json'
 
+const loading = {
+  loop: true,
+  autoplay: true,
+  animationData: loading_yellow,
+};
 interface ILoadingProps {
   language: QuizLanguage
 }
 
 const LoadingWidget: React.FC<ILoadingProps> = ({ language }) => {
   return (
-    <Widget>
+    <Widget
+      as={motion.section}
+      transition={{ delay: 0, duration: 0.5 }}
+      variants={{
+        show: { opacity: 1, x: '0' },
+        hidden: { opacity: 0, x: '-100%' },
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
-        {language ===  QuizLanguage.ENGLISH ? 'Loading...' : 'Carregando...'}
+        {language === QuizLanguage.ENGLISH ? 'Loading...' : 'Carregando...'}
       </Widget.Header>
 
       <Widget.Content style={{ padding: 0 }}>
-        <img
-          alt="Descricao"
-          style={{
-            width: '100%',
-            height: '200px',
-            objectFit: 'cover'
-          }}
-          src="http://studentedgecontent.blob.core.windows.net/images/articles/2015/06/simpsons.gif"
+        <Lottie
+          speed={1.5}
+          options={loading}
+          isStopped={false}
+          isPaused={false}
+          style={{ background: "none !important", boxShadow: "none !important" }}
         />
       </Widget.Content>
     </Widget>
@@ -41,13 +55,10 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-interface IQuizProps {
-  name: string;
-}
 
-const Quiz: React.FC<IQuizProps> = () => {
+const Quiz: React.FC = () => {
 
-  const { quizData, language,setResults } = useQuizContext();
+  const { quizData, language, setResults } = useQuizContext();
   const [screenState, setScreenState] = useState(screenStates.LOADING)
   const [totalQuestions, setTotalQuestions] = useState(quizData.questions.length);
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -74,7 +85,6 @@ const Quiz: React.FC<IQuizProps> = () => {
 
   return (
     <QuizBackground backgroundImage={quizData.bg}>
-      <LanguageRadio />
       <QuizContainer>
         <QuizLogo />
         {
@@ -89,7 +99,7 @@ const Quiz: React.FC<IQuizProps> = () => {
                 setResults={setResults}
               />
               : <>
-                <ResultWidget/>
+                <ResultWidget />
               </>
         }
       </QuizContainer>

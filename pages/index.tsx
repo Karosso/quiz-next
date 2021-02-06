@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../src/components/Footer/Footer';
 import GitHubCorner from '../src/components/GitHubCorner/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground/QuizBackground';
@@ -10,11 +10,17 @@ import Button from '../src/components/Button/Button';
 import QuizContainer from '../src/components/QuizContainer/QuizBackground';
 import { QuizLanguage, useQuizContext } from '../src/context/QuizContext';
 import LanguageRadio from '../src/components/LanguageRadio/LanguageRadio';
+import { db } from '../db';
+import { motion } from 'framer-motion';
 
-export default function Home() {
+const Home = () => {
 
-  const { quizData, language, name, setName } = useQuizContext();
+  const { quizData, language, name, setName, getQuiz } = useQuizContext();
   const router = useRouter();
+
+  useEffect(() => {
+    getQuiz(language)
+  }, [])
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
@@ -25,13 +31,33 @@ export default function Home() {
     router.push({ pathname: `/quiz` })
   }
 
+  const handleCrowdQuizClick = (externalQuiz: string, index: number) => {
+    if(name.length < 3){
+      alert('entre com seu nome para continuar')
+    } else{
+      router.push({
+        pathname: `/quiz/${externalQuiz}`,
+        query: { index: index }
+      })
+    }
+  }
+
   return (
     <QuizBackground backgroundImage={quizData.bg}>
       <LanguageRadio />
-      
+
       <QuizContainer>
-        <QuizLogo />
-        <Widget>
+        <QuizLogo/>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0, duration: 0.5}}
+          variants={{
+            show: {opacity: 1, x: '0'},
+            hidden: { opacity: 0, x: '-100%'},
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Header>
             <h1>{quizData.title}</h1>
           </Widget.Header>
@@ -43,10 +69,44 @@ export default function Home() {
             </form>
           </Widget.Content>
         </Widget>
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0.5, duration: 0.5}}
+          variants={{
+            show: {opacity: 1, x: '0'},
+            hidden: { opacity: 0, x: '-100%'},
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Content>
-            <h1>Lorem ipson dolor sit amet...</h1>
-            <p>Lorem ipson dolor sit amet...</p>
+            <h1>
+              {
+                language === QuizLanguage.ENGLISH
+                  ?
+                  `Crowd quizzes...`
+                  :
+                  `Quizes da galera...`
+              }
+            </h1>
+            <ul>
+              {
+                db.external.map((item, index) => {
+                  const linkText = item
+                    .replace(/\//g, '')
+                    .replace('https:', '')
+                    .replace('.vercel.app', '')
+
+                  return (
+                    <li key={index}>
+                      <Widget.Topic onClick={() => handleCrowdQuizClick(linkText, index)}>
+                        {linkText}
+                      </Widget.Topic>
+                    </li>
+                  )
+                })
+              }
+            </ul>
           </Widget.Content>
         </Widget>
         <Footer />
@@ -55,3 +115,5 @@ export default function Home() {
     </QuizBackground>
   );
 }
+
+export default Home;

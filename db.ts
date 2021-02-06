@@ -60,7 +60,10 @@ export const db: IQuizModel = {
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz-base.alura-challenges.vercel.app/",
+    "https://aluraquiz-coffee.leonardot07.vercel.app/",
+    "https://quiz-cavaleiro-zodiaco.vercel.app/",
+    "https://harry-potter-quiz.brunogerbasi.vercel.app/"
   ],
   "theme": {
     "colors": {
@@ -83,30 +86,71 @@ export const questions_pt: IQuizModel = {
   "description": "Teste os seus conhecimentos sobre a família mais amada das telinhas!",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
+      "image": "http://cdn.lowgif.com/small/0704b934a03225ba-.gif",
+      "title": "Qual nome completo do Bart?",
       "description": "Essa é pra aquecer",
-      "answer": 2,
+      "answer": 1,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "Bart Simpson",
+        "Bartholomew JoJo Simpson",
+        "Bartolomew Simpson",
+        "Bartholomew J Simpson"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://i.pinimg.com/originals/60/3f/19/603f19757f2a4a0e6b61d3248cbf0768.gif",
+      "title": "Qual o nome do cachorro dos Simpsons?",
+      "description": "É aquele marronzinho",
+      "answer": 3,
+      "alternatives": [
+        "Toto",
+        "Papai Noel",
+        "Bola de Neve III",
+        "Ajudante de Papai Noel"
+      ]
+    },
+    {
+      "image": "https://i.pinimg.com/originals/fa/d0/51/fad051682468ebd7f43163984dd75206.gif",
+      "title": "A serie Simpsons está no ar a quanto tempo?",
+      "description": "Faz tempo em haha...",
       "answer": 0,
       "alternatives": [
-        "background: linear-gradient(#e66465, #9198e5);",
-        "background: gradient(#e66465, #9198e5);"
+        "31 anos",
+        "26 anos",
+        "39 anos",
+        "34 anos"
+      ]
+    },
+    {
+      "image": "https://thumbs.gfycat.com/GloriousNiceFlyingsquirrel-size_restricted.gif",
+      "title": "Quais destes famosos não apereceram nos Simpsons?",
+      "description": "Foram tantos...",
+      "answer": 2,
+      "alternatives": [
+        "Ronaldo Fenômeno",
+        "Stephen Hawking",
+        "Neymar Junior",
+        "Michelle Obama"
+      ]
+    },
+    {
+      "image": "https://i.pinimg.com/originals/0c/b9/c7/0cb9c7e91468b11d6e4e3d1ec473a5ec.gif",
+      "title": "Em que ano foi lançado o filme dos Simpsons?",
+      "description": "O Filme",
+      "answer": 0,
+      "alternatives": [
+        "2007",
+        "2003",
+        "2014",
+        "2011"
       ]
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz-base.alura-challenges.vercel.app/",
+    "https://aluraquiz-coffee.leonardot07.vercel.app/",
+    "https://quiz-cavaleiro-zodiaco.vercel.app/",
+    "https://harry-potter-quiz.brunogerbasi.vercel.app/"
   ],
   "theme": {
     "colors": {
@@ -129,30 +173,71 @@ export const questions_en: IQuizModel = {
   "description": "Test your knowledge of the most loved family on the screens!",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
-      "answer": 2,
+      "image": "http://cdn.lowgif.com/small/0704b934a03225ba-.gif",
+      "title": "What is Bart's full name",
+      "description": "This is to warm up",
+      "answer": 1,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "Bart Simpson",
+        "Bartholomew JoJo Simpson",
+        "Bartolomew Simpson",
+        "Bartholomew J Simpson"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://i.pinimg.com/originals/60/3f/19/603f19757f2a4a0e6b61d3248cbf0768.gif",
+      "title": "What is the name of the Simpsons dog?",
+      "description": "It's that brownie",
+      "answer": 3,
+      "alternatives": [
+        "Charlie",
+        "Santa",
+        "Snowball III",
+        "Santa's Little Helper"
+      ]
+    },
+    {
+      "image": "https://i.pinimg.com/originals/fa/d0/51/fad051682468ebd7f43163984dd75206.gif",
+      "title": "The Simpsons series has been in the air for how long?",
+      "description": "It's been a while huh...",
       "answer": 0,
       "alternatives": [
-        "background: linear-gradient(#e66465, #9198e5);",
-        "background: gradient(#e66465, #9198e5);"
+        "31 years",
+        "26 years",
+        "39 years",
+        "34 years"
+      ]
+    },
+    {
+      "image": "https://thumbs.gfycat.com/GloriousNiceFlyingsquirrel-size_restricted.gif",
+      "title": "Which of these celebrities did not appear in the Simpsons?",
+      "description": "There were so many",
+      "answer": 2,
+      "alternatives": [
+        "Ronaldo Fenômeno",
+        "Stephen Hawking",
+        "Neymar Junior",
+        "Michelle Obama"
+      ]
+    },
+    {
+      "image": "https://i.pinimg.com/originals/0c/b9/c7/0cb9c7e91468b11d6e4e3d1ec473a5ec.gif",
+      "title": "What year was the Simpsons movie released?",
+      "description": "The Movie",
+      "answer": 0,
+      "alternatives": [
+        "2007",
+        "2003",
+        "2014",
+        "2011"
       ]
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz-base.alura-challenges.vercel.app/",
+    "https://aluraquiz-coffee.leonardot07.vercel.app/",
+    "https://quiz-cavaleiro-zodiaco.vercel.app/",
+    "https://harry-potter-quiz.brunogerbasi.vercel.app/"
   ],
   "theme": {
     "colors": {

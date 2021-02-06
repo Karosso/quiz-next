@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react'
 import { IQuestions } from '../../../db';
 import { QuizLanguage, useQuizContext } from '../../context/QuizContext';
@@ -40,14 +41,23 @@ const QuestionWidget: React.FC<IQuestionWidgetProps> = ({ question, totalQuestio
 
 
   return (
-    <Widget>
+    <Widget
+      as={motion.section}
+      transition={{ delay: 0, duration: 0.5 }}
+      variants={{
+        show: { opacity: 1, x: '0' },
+        hidden: { opacity: 0, x: '-100%' },
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
         <h3>
           {
-            language === QuizLanguage.ENGLISH 
-            ?
+            language === QuizLanguage.ENGLISH
+              ?
               `Question ${questionIndex + 1} of ${totalQuestions}`
-            : 
+              :
               `Pergunta ${questionIndex + 1} de ${totalQuestions}`
           }
         </h3>
@@ -56,7 +66,7 @@ const QuestionWidget: React.FC<IQuestionWidgetProps> = ({ question, totalQuestio
         alt="Descricao"
         style={{
           width: '100%',
-          height: '150px',
+          height: '200px',
           objectFit: 'cover'
         }}
         src={question.image}

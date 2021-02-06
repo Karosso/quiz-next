@@ -14,7 +14,9 @@ interface IQuizContext {
   name: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
   results: boolean[];
-  setResults: React.Dispatch<React.SetStateAction<boolean[]>>
+  setResults: React.Dispatch<React.SetStateAction<boolean[]>>;
+  setQuizData: React.Dispatch<React.SetStateAction<IQuizModel>>;
+  getQuiz: (language: QuizLanguage) => Promise<void>
 }
 
 const QuizContext = createContext<IQuizContext>({} as IQuizContext);
@@ -50,12 +52,14 @@ export const QuizProvider: React.FC = ({ children }) => {
     <QuizContext.Provider
       value={{
         quizData,
+        setQuizData,
         setLanguage,
         language,
         name,
         setName,
         results,
-        setResults
+        setResults,
+        getQuiz
       }}
     >
       {children}
